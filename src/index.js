@@ -10,5 +10,13 @@ const client = new Client({
     ]
 });
 
+client.on('ready', (c) => {
+    try {
+        console.log(`${ c.user.username } has succesfully initialized is now online!`);
+    } catch (error) {
+        console.log(`${ c.user.username } has failed to initialized due to an error.`)
+    }
+});
+
 client.login(config.token);
 
