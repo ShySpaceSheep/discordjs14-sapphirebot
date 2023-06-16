@@ -1,4 +1,4 @@
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, ActivityType } = require('discord.js');
 const config = require('./config.json');
 
 const client = new Client({
@@ -12,9 +12,10 @@ const client = new Client({
 
 client.on('ready', (c) => {
     try {
-        console.log(`${ c.user.username } has succesfully initialized is now online!`);
+        console.log(`${ c.user.tag } has succesfully initialized is now online!`);
+        c.user.setPresence({ activities: [{ name: `Oshi no Ko Episode 9`, type: ActivityType.Watching }] });
     } catch (error) {
-        console.log(`${ c.user.username } has failed to initialized due to an error.`)
+        console.log(`${ c.user.tag } has failed to initialized due to an error.`)
     }
 });
 
