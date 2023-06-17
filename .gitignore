@@ -5,4 +5,4 @@ node_modules/
 config.json
 
 # Temporary files that only exists for experimental or study purposes
-temp-register-commands.js
+# temp-register-commands.js
