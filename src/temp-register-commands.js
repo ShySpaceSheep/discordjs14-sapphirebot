@@ -4,6 +4,7 @@ const config = require('./config.json');
 const commands = [
     { name: 'pekoify', description: 'Append Pekora\'s \"peko\" to a message!' },
     { name: 'now', description: 'Retrieve the current date and time.'},
+    { name: 'me', description: 'Show the user their public Discord information.' },
     { 
         name: 'add',
         description: 'Adds two numbers provided by the user',

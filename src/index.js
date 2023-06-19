@@ -1,4 +1,4 @@
-const { Client, IntentsBitField, ActivityType } = require('discord.js');
+const { Client, IntentsBitField, EmbedBuilder, ActivityType } = require('discord.js');
 const config = require('./config.json');
 
 const client = new Client({
@@ -33,6 +33,23 @@ client.on('interactionCreate', (interaction) => {
         const num2 = interaction.options.get('second_number').value;
 
         interaction.reply(`I was given the numbers ${num1} and ${num2}, therefore, their sum would be ${num1 + num2}!`);
+    } else if (cmd === 'me') {
+        const embed = new EmbedBuilder()
+        .setAuthor({ name: "\u200B", iconURL: interaction.user.avatarURL() })
+        .setColor("Aqua")
+        .setThumbnail(interaction.user.avatarURL())
+        .setTitle("You have called for an embed!")
+        .setDescription(`${interaction.user.username} has initiated the embed command!`)
+        .addFields(
+            { name: "⭐ Reputation", value: "8.67/10", inline: true },
+            { name: "🏆 Current Rank", value: "**TOP 4**", inline: true },
+            { name: "👏 Appraisals Received", value: "21", inline: true },
+        )
+        .setImage("https://media.tenor.com/7XwcFNembSoAAAAC/bocchi-the-rock-hitori-gotoh.gif")
+        .setFooter({ text: "Embed created using Sapphire", iconURL: client.user.avatarURL() })
+        .setTimestamp();
+
+        interaction.reply({ embeds: [embed] });
     } else if (cmd === 'helloworld') {
         const progLangCode = interaction.options.get('programming_language').value;
 
@@ -56,11 +73,12 @@ client.on('interactionCreate', (interaction) => {
                 interaction.reply("\`\`\`Java\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tSystem.out.println(\"Hello World!\");\n\t}\n}\`\`\`");
                 break;
             case 4:
-                interaction.reply("It is fairly simple to print out a \'Hello World\' line using Javascript using the following line of code below:\n" +
+                interaction.reply("As with Python, it is fairly simple to print out a \'Hello World\' line with Javascript using the following line of code below:\n" +
                                 "\`\`\`Javascript\nconsole.log(\"Hello World!\");\`\`\`");
                 break;
             case 5:
-                interaction.reply("\`\`\`Python\nprint(\"Hello World!\");\`\`\`");
+                interaction.reply("As with Javascript, it is fairly simple to print out a \'Hello World\' line with Python using the following line of code below:\n" +
+                                "\`\`\`Python\nprint(\"Hello World!\");\`\`\`");
                 break;
             default:
                 break;
