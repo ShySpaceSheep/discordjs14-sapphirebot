@@ -6,3 +6,7 @@ config.json
 
 # Temporary files that only exists for experimental or study purposes
 # temp-register-commands.js
+
+# Some miscellaneous files not necessary for code reviewers
+test-message-template.js
+rejects.js
