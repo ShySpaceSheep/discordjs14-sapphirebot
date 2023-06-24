@@ -2,7 +2,8 @@ const { REST, Routes, ApplicationCommandOptionType } = require('discord.js');
 const config = require('./config.json');
 
 const commands = [
-    { name: 'profile', description: 'Display a detailed view of your server profile statistics.' }
+    { name: 'profile', description: 'Display a detailed view of your server profile statistics.' },
+    { name: 'buttons', description: 'Sends a message with buttons.' }
 ];
 
 const rest = new REST({version: '10'}).setToken(config.token);
