@@ -1,7 +1,7 @@
 const path = require('path');
 const retrieveFiles = require('./retrieveFiles');
 
-module.export = (exception) => {
+module.exports = (exception) => {
     let localCommands = [];
     const commandTypes = retrieveFiles(path.join(__dirname, '..', 'commands'), true);
 
