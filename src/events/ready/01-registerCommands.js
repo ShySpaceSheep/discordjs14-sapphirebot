@@ -7,7 +7,7 @@ module.exports = async (client) => {
     console.log(`\u001b[1;33m[TASK] Registering all available slash commands...`, `\u001b[0m`);
     try {
         const localCmds = retrieveLocalCmds();
-        const applicationCmds = retrieveAppCmds(client, homeGuildID);
+        const applicationCmds = await retrieveAppCmds(client, homeGuildID);
 
         for (const localCmd of localCmds) {
             const { name, description, version } = localCmd;
@@ -21,6 +21,7 @@ module.exports = async (client) => {
                     await applicationCmds.edit(duplicateCmd.id, { description, version });
                     console.log(`\u001b[1;32m[SUCCESS] Resolved version discrepancy, updated "${name}" command to newest version ${version}!`, `\u001b[0m`);
                 }
+                console.log(`\u001b[1;33m[STATUS] ${name} is up-to-date, using that...`, `\u001b[0m`);
             } else {
                 await applicationCmds.create({ name, description, version });
                 console.log(`\u001b[1;32m[STATUS] Successfully registered "${name}" as a new slash command!`, `\u001b[0m`);

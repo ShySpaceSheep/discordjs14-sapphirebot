@@ -8,12 +8,10 @@ module.exports = (client) => {
         eventFiles.sort((a, b) => a > b);
         const eventName = eventFolder.replace(/\\/g, '/').split('/').pop();
 
-        console.log(eventFolder);
         client.on(eventName, async (arg) => {
             for (const eventFile of eventFiles) {
-                console.log(eventFile);
-                //const eventFunction = require(eventFile);
-                //await eventFunction(client, arg);
+                const eventFunction = require(eventFile);
+                await eventFunction(client, arg);
             }
         });
     }

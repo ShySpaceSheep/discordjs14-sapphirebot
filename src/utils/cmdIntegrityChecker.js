@@ -1,3 +1,3 @@
-module.export = (currentCmd, duplicateCmd) => {
+module.exports = (currentCmd, duplicateCmd) => {
     return currentCmd.version === duplicateCmd.version
 };

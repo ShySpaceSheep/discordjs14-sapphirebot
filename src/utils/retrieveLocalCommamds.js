@@ -6,7 +6,7 @@ module.exports = (exception) => {
     const commandTypes = retrieveFiles(path.join(__dirname, '..', 'commands'), true);
 
     for (const commandType of commandTypes) {
-        const commandSrcs = retrieveFiles(commandTypes);
+        const commandSrcs = retrieveFiles(commandType);
         for (const cmdSrc of commandSrcs) {
             const cmdObject = require(cmdSrc);
             localCommands.push(cmdObject);
