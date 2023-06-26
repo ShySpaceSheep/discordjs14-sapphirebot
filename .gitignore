@@ -3,11 +3,3 @@ node_modules/
 
 # Global configuration settings
 config.json
-
-# Temporary files that only exists for experimental or study purposes
-# temp-register-commands.js
-
-# Some miscellaneous files not necessary for code reviewers
-temp-register-commands.js
-test-message-template.js
-rejects.js

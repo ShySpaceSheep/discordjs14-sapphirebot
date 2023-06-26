@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: 'profile',
-    description: 'Displays a detailed view of your server profile statistics',
+    description: 'Displays a detailed view of your current server profile statistics',
     version: '0.0.1',
     isPublic: false,
     isEnabled: true,
